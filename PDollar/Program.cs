@@ -27,6 +27,7 @@ namespace PDollar
                     break;
                 case ["-r"]:  // pdollar -r
                     ResetConfig();
+                    Console.WriteLine("Reset gesture template list (in config.txt)");
                     break;
                 case [string eventstreamPath]:  // pdollar <eventstream>
                     var trainingSet = CreateTrainingSetFromConfig();
@@ -87,6 +88,12 @@ namespace PDollar
             }
             gestureList = gestureList.Append(gesturePath).ToArray();
             File.WriteAllLines(ConfigPath, gestureList);
+            Console.WriteLine($"Added new gesture template path {gesturePath}.");
+            Console.WriteLine($"Current list is as follows:");
+            foreach (var path in gestureList)
+            {
+                Console.WriteLine($"  {path}");
+            }
         }
 
         public static void ResetConfig()

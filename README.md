@@ -10,7 +10,7 @@ Make sure you are in the `\PDollar\` directory and not the repository folder.
 
 Makefile commands and descriptions
 ```
-make - Builds the application executable into `\PDollar\bin\Release\net8.0`
+make - Builds the application executable into `\PDollar\build\`
 make clean - Cleans build files and ext_gestures.txt
 ```
 
