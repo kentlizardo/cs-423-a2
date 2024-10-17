@@ -46,9 +46,9 @@ namespace PDollar
 
         public static string[] GetTemplateListFromConfig()
         {
-            string[] gestureList = File.ReadAllLines(ConfigPath);
-            //  Skip any null or empty lines.
-            gestureList = gestureList.Where(line => string.IsNullOrWhiteSpace(line)).ToArray();
+            string[] gestureList = File.ReadAllLines(ConfigPath)
+                .Where(line => !string.IsNullOrWhiteSpace(line))  //  Skip any null or empty lines.
+                .ToArray();
             return gestureList;
         }
         public static bool TryGetTemplateListFromConfig(out string[] val)
@@ -59,7 +59,7 @@ namespace PDollar
                 val = GetTemplateListFromConfig();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
                 return false;
             }
@@ -73,8 +73,10 @@ namespace PDollar
                 try
                 {
                     string[] oldGestureList = File.ReadAllLines(ConfigPath);
-                    //  Skip any null or empty lines.
-                    oldGestureList = oldGestureList.Where(line => string.IsNullOrWhiteSpace(line)).ToArray();
+                    oldGestureList = GetTemplateListFromConfig()
+                        .Where(line => line != gesturePath)  // Ignore adding new path if already added.
+                        .ToArray();
+
                     gestureList = oldGestureList;
                 }
                 catch (FileNotFoundException e)
