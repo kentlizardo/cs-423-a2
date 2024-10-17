@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="libs\PDollarGestureRecognizer.pdb" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="PDollarGestureRecognizer">
       <HintPath>libs\PDollarGestureRecognizer.dll</HintPath>
     </Reference>
