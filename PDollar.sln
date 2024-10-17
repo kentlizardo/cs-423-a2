@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pdollar", "PDollar Tool\pdollar.csproj", "{1C52EF0A-54B8-4675-B187-C5A3787975ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pdollar", "PDollar\pdollar.csproj", "{1C52EF0A-54B8-4675-B187-C5A3787975ED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8D94A43A-0E5F-4C3D-AADF-8DCF2B4C31B8}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		README.md = README.md
+		README.txt = README.txt
 	EndProjectSection
 EndProject
 Global

@@ -7,7 +7,7 @@ namespace PDollar
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
-            PointCloudRecognizer.Classify();
+            //PointCloudRecognizer.Classify();
         }
     }
 }

@@ -6,9 +6,11 @@ pdollar <args>
 
 In order to build this project you must have Visual Studio Build Tools and the .NET SDK installed on your machine.
 
+Make sure you are in the `PDollar Tool` directory and not the repository folder.
+
 Makefile commands and descriptions
 ```
-make - Builds the application executable into 
+make - Builds the application executable into `\PDollar\bin\Release\net8.0`
 make clean - Cleans build files and ext_gestures.txt
 ```
 
