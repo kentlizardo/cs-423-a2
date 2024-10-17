@@ -10,7 +10,7 @@ Make sure you are in the `/PDollar/` directory for the Make commands.
 Makefile commands and descriptions
 ```
 make - Builds the application executable into '/PDollar/build/'
-make clean - Cleans build files and ext_gestures.txt
+make clean - Cleans build files and config.txt
 ```
 
 Make sure you are in the `/PDollar/build/` directory.
@@ -27,5 +27,5 @@ pdollar <eventstream>
 ```
 
 # AI Usage Statement
-The only usage of AI in this project was to assist in generation of various Makefile(s) for MsBuild and Mono and the .NET CLI. The only included one in the Makefile was the .NET build process.
+The only usage of AI in this project was to assist in generation of various Makefile(s) for MsBuild and Mono and the .NET CLI. The only work affected was the latest Makefile for the .NET build process.
 No other usage of AI.
