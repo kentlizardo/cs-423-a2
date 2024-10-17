@@ -6,7 +6,7 @@ pdollar <args>
 
 In order to build this project you must have Visual Studio Build Tools and the .NET SDK installed on your machine.
 
-Make sure you are in the `PDollar Tool` directory and not the repository folder.
+Make sure you are in the `\PDollar\` directory and not the repository folder.
 
 Makefile commands and descriptions
 ```
