@@ -6,6 +6,6 @@ all: $(CS_PROJ)
 
 clean:
 	dotnet clean $(CS_PROJ)
-	del ext_gestures.txt
+	del config.txt
 
 .PHONY: all clean
