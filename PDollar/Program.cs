@@ -1,6 +1,36 @@
 ﻿using PDollarGestureRecognizer;
 using System.IO;
 
+// PDollar Tool
+// Kent Brian Lizardo
+// 
+// An implementation of PDollar, see (http://depts.washington.edu/madlab/proj/dollar/pdollar.html)
+// by Jacob O. Wobbrock, et. al. This application was written for the CS 423
+// Natural User Interfaces course for the Fall 2024 semester at UIC.
+//   The app is a command line tool used to interact with an eventstream file
+// format and a gesturefile format following assignment specifications. Each
+// form of command is run by executing the program with a set number of arguments.
+// The tool runs "stateless" and uses the 'config.txt' file in order to store a list of
+// gesture templates which will be processed each time.
+// 
+// File Formats:
+//
+// (gesturefile format)
+// GestureName  <-- This is what the gesture will be recognized as when the point cloud
+//              recognizer classifies it.
+// BEGIN        <-- Indicates the start of a stroke.
+// [x],[y]      <-- Adds a point to the current stroke. Any number of points can go
+//              between BEGIN and END.
+// END          <-- Indicates end of a stroke.
+//
+// (eventstream file format)
+// MOUSEDOWN    <-- Indicates the start of a stroke for the current gesture.
+// [x],[y]      <-- Adds a point to the current stroke in the current gesture.
+// END          <-- Ends the stroke and adds it to the current gesture.
+// RECOGNIZE    <-- Clears the current gesture data while also printing out
+//              the recognizer's classification of it's data.
+
+
 namespace PDollar
 {
     internal class Program
@@ -22,26 +52,28 @@ namespace PDollar
         {
             switch(args)
             {
-                case ["-t", string gesturePath]:  // pdollar -t <gesturefile>
+                // pdollar -t <gesturefile>
+                case ["-t", string gesturePath]:
                     AddTemplateToConfig(gesturePath);
                     break;
-                case ["-r"]:  // pdollar -r
+                // pdollar -r
+                case ["-r"]:
                     ResetConfig();
                     Console.WriteLine("Reset gesture template list (in config.txt)");
                     break;
-                case [string eventstreamPath]:  // pdollar <eventstream>
+                // pdollar <eventstream>
+                case [string eventstreamPath]:  
                     var trainingSet = CreateTrainingSetFromConfig();
                     ReadEventStream(eventstreamPath, trainingSet);
                     break;
-                case []:  // pdollar
+                // pdollar
+                case []:
                     Console.WriteLine(HelpText);
                     break;
                 default:
                     Console.WriteLine("Invalid number or set of arguments. Use \"pdollar\" for help.");
                     break;
             }
-
-            //string[] x =  File.ReadAllLines();
         }
 
         public static string[] GetTemplateListFromConfig()
